@@ -29,24 +29,24 @@
 #define led4  31
 #define out3  8
 
-#define dirpin 10 //pin fÃ¼r Richtung
-#define steppin  9 //pin fÃ¼r Schritt
+#define dirpin 10 //pin for direction
+#define steppin  9 //pin for step
 
 
 
 #define tweeter  32
  
-#define resolution 1600  //Resolution Encoder
+#define resolution 1600  //Encoder Resolution 
 
 #define stepper_delay 3
 
 #define backlash_speed (A_T_x100/700) 
 #define FSPR 400
-#define steps_mm 200 // aus der Rechnungstabelle
+#define steps_mm 200 // from the account table
 
 #define pi  314
 
-// Speed ramp Data aus der Berechnungstabelle
+// Speed ramp Data from the calculation table
 #define A_T_x100 1570796
 #define T1_FREQ_148 13520
 #define A_SQ 157079632
@@ -54,7 +54,7 @@
 
 #define accel_stepper 50000 
 
-#define default_thread_pitch 225 // Steigung 2mm entspricht 200, 1.06 entspricht 106... !!
+#define default_thread_pitch 225 // Pitch 2mm equivalent to 200 , 106 corresponds to 1:06... !!
 #define default_thread_length 0
 #define default_grind_way 0
 #define default_grind_speed 0
@@ -66,7 +66,7 @@
 #define default_fast_move 6000
 #define default_slow_move 1000
 #define default_delay_move 2
-#define default_backlash_move 112 // Schritte zur kompensation
+#define default_backlash_move 112 // Steps for compensation
 
 // Speed ramp states
 #define STOP  0
@@ -129,7 +129,7 @@ struct GLOBAL_FLAGS {
 struct GLOBAL_FLAGS status = {FALSE, FALSE, FALSE, FALSE,FALSE,FALSE};
 	
 	struct config_t{
-		long thread_pitch ; // Steigung 2mm entspricht 200, 1.06 entspricht 106... !!
+		long thread_pitch ; // Pitch 2mm equivalent to 200 , 106 corresponds to 1:06... !!
 		long thread_length ;
 		long grind_way;
 		long grind_speed ;
