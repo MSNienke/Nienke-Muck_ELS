@@ -569,7 +569,7 @@ void print_menue_numbers ()
 			    
 			    break;
 				
-				    case 3:// Thread ---------------------------
+				    case 3:// Move ---------------------------
 				    if (status.running == FALSE){
 					    
 					    GLCD.CursorTo(14,1);
@@ -592,7 +592,7 @@ void print_menue_numbers ()
 				    
 				    break;
 					
-					  case 4:// Move ---------------------------
+					  case 4:// Options ---------------------------
 					  if (status.running == FALSE){
 						  
 						  GLCD.CursorTo(14,1);
@@ -886,7 +886,7 @@ ISR ( TIMER1_COMPA_vect )
 
 	switch(srd.run_state) {
 		case STOP:	
-              fehler = resolution/2;	
+              Error = resolution/2;	
 		step_count = 0;
 		rest = 0;
 		// Stop Timer/Counter 1.
@@ -903,12 +903,12 @@ ISR ( TIMER1_COMPA_vect )
 		srd.accel_count++;
 		new_step_delay = srd.step_delay - (((2 * (long)srd.step_delay) + rest)/(4 * srd.accel_count + 1));
 		rest = ((2 * (long)srd.step_delay)+rest)%(4 * srd.accel_count + 1);
-		// Chech if we should start decelration.
+		// Check if we should start decelration.
 		if(step_count >= srd.decel_start) {
 			srd.accel_count = srd.decel_val;
 			srd.run_state = DECEL;
 		}
-		// Check if we hitted max speed.
+		// Check if we hit max speed.
 		else if(new_step_delay <= srd.min_delay) {
 			last_accel_delay = new_step_delay;
 			new_step_delay = srd.min_delay;
@@ -951,7 +951,7 @@ ISR ( TIMER1_COMPA_vect )
 		sm_driver_StepOutput();
 		step_count++;
 		new_step_delay = srd.min_delay;
-		// Chech if we should start decelration.
+		// Check to see if we should start decelration.
 		if(step_count >= srd.decel_start && digitalRead (S1) && digitalRead (S2)&& digitalRead (S3) && digitalRead (S4)) 
 		{
 			srd.accel_count = srd.decel_val;
@@ -971,7 +971,7 @@ ISR ( TIMER1_COMPA_vect )
 		srd.accel_count++;
 		new_step_delay = srd.step_delay - (((2 * (long)srd.step_delay) + rest)/(4 * srd.accel_count + 1));
 		rest = ((2 * (long)srd.step_delay)+rest)%(4 * srd.accel_count + 1);
-		// Check if we at last step
+		// Check to see if we are at last step
 		if(srd.accel_count >= 0){
 			srd.run_state = STOP;
 		}
